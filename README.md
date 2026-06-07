@@ -1,115 +1,180 @@
-# Token Founder - 免费 AI 模型 API 资源调研
+# Token Founder 🔑
 
-> **创新型项目** | Madapex 团队维护
-> 
-> 全面调研、测试验证各大免费 AI 模型 API 资源，为智谱战士集群提供多模型备选方案。
+> Free AI Model API Discovery & Testing — 免费大模型API发掘、注册、测试与验证
 
-## 📋 项目目标
-
-1. 整理所有可用的免费 AI 模型 API 资源
-2. 测试验证每个 API 的连通性和可用性
-3. 提供统一的接入代码示例
-4. 建立 token 管理和轮换机制
-5. 为智谱战士集群降低对单一平台的依赖
+**由 MindApex 团队智谱2号战士维护** | Last Updated: 2026-06-07
 
 ---
 
-## 🗂️ 目录结构
+## 项目目标
+
+发掘、注册、测试并验证所有可用的免费AI模型API，为团队构建零成本AI能力提供完整方案。
+
+## 核心发现
+
+- **25+ 提供商**提供免费AI API
+- **300+ 模型**可免费使用
+- **12+ 中国提供商** + **10+ 国际提供商**
+- 覆盖文本、图像、视频、语音全模态
+
+## 目录结构
 
 ```
 token-founder/
-├── README.md              # 本文件 - 项目总览
+├── README.md                    # 本文件
 ├── docs/
-│   └── free-api-guide.md  # 免费API完整指南（详细文档）
-├── tests/
-│   ├── connectivity-test.sh    # API连通性测试脚本
-│   └── test-results.md         # 测试结果记录
-└── scripts/
-    └── unified-call.py     # 统一调用示例（OpenAI兼容格式）
+│   ├── comprehensive-free-models.md   # 全球免费模型完整报告
+│   ├── kimi-webbridge-setup.md        # Kimi API 完整指南
+│   ├── zhihu-article-notes.md         # 知乎文章笔记
+│   ├── wechat-article-notes.md        # 微信文章笔记
+│   └── feishu-doc-summary.md          # 飞书文档摘要
+├── scripts/
+│   ├── test_free_apis.py              # API 测试脚本
+│   └── api_keys.example.env           # API Key 模板
+├── test_results/
+│   └── test_results_20260607.json     # 最新测试结果
+└── verified-providers.md              # 已验证通过的提供商
 ```
 
+## Tier 0：真正无限免费（无需信用卡）
+
+| 提供商 | 免费额度 | 最佳模型 | OpenAI兼容 | API Base URL |
+|--------|---------|---------|-----------|-------------|
+| Google Gemini | 1,500 RPD | Gemini 2.5 Flash | ✅ | `generativelanguage.googleapis.com/v1beta/openai/` |
+| Groq | 30 RPM | Llama 4 Scout | ✅ | `api.groq.com/openai/v1` |
+| Cerebras | 1M TPD | Llama 3.3 70B | ✅ | `api.cerebras.ai/v1` |
+| OpenRouter | 27+ $0模型 | Qwen 3.6 Plus | ✅ | `openrouter.ai/api/v1` |
+| SiliconFlow | 20M tokens | DeepSeek-V3 | ✅ | `api.siliconflow.cn/v1` |
+| DeepSeek | 5M tokens | DeepSeek-V3/R1 | ✅ | `api.deepseek.com/v1` |
+| 智谱AI | 永久免费 | GLM-4.7-Flash | ✅ | `open.bigmodel.cn/api/paas/v4` |
+| Mistral | Free mode | Mistral Small | ✅ | `api.mistral.ai/v1` |
+| NVIDIA NIM | 80+ 模型 | Llama 3.3 70B | ✅ | `integrate.api.nvidia.com/v1` |
+| SambaNova | Free tier | Llama 3.x | ✅ | `api.sambanova.ai/v1` |
+| Agnes AI | 无限期免费 | Agnes-2.0-Flash | ✅ | `apihub.agnes-ai.com/v1` |
+| 讯飞MaaS | 无限Token(6月底) | Qwen3.6-35B | ✅ | `maas-api.cn-huabei-1.xf-yun.com/v2` |
+| Cloudflare | 10K neurons/day | 78+ 模型 | ⚠️ | workers.cloudflare.com |
+| HuggingFace | Free inference | 10万+ 模型 | ⚠️ | `api-inference.huggingface.co/` |
+
+## Tier 1：大额免费积分（无需信用卡）
+
+| 提供商 | 免费额度 | 有效期 | 最佳模型 |
+|--------|---------|-------|---------|
+| Together AI | $5-100 | 30-90天 | 200+开源模型 |
+| xAI Grok | $25 + $150/月 | 月度刷新 | Grok-3系列 |
+| Fireworks AI | $1 | 注册即送 | Llama 3.3等 |
+| Cohere | Trial key free | 速率限制 | Command R+ |
+| DeepInfra | $5 | 注册即送 | Llama 3.1 405B |
+| Cerebrium | $30 | 注册即送 | 任意HF模型 |
+| AI21 Labs | $10 | 3个月 | Jamba系列 |
+| Friendli AI | $10 | 注册即送 | Llama 3.1 70B |
+
+## 聚合平台（一个Key调所有）
+
+| 平台 | 免费模型数 | 特点 |
+|------|----------|------|
+| OpenRouter | 35+ | 一个API Key调几十种模型，推荐首选 |
+| NVIDIA NIM | 120+ | 全部免费开发使用 |
+| Pollinations.ai | 全模态 | 一个API覆盖文本/图像/音频/视频，无需Key |
+| GitHub Models | 8 | GitHub账号直接可用 |
+
+## 特殊发现
+
+### 1. Agnes AI — 全球首个全模态免费API
+- 来源: [知乎文章](https://zhuanlan.zhihu.com/p/2044805921726100061)
+- 文本: Agnes-2.0-Flash
+- 图像: Agnes-Image-2.0-Flash  
+- 视频: Agnes-Video-2.0 (含音频)
+- 注册: platform.agnes-ai.com
+
+### 2. 讯飞MaaS — 无限Token白嫖Qwen3.6
+- 来源: [微信公众号](https://mp.weixin.qq.com/s/PlxEXAhaJFtqe4t9WSH40A)
+- 地址: https://maas.xfyun.cn/modelSquare?ch=maas-cg-kol-102
+- 免费模型: Qwen3.6-35B-A3B、Qwen3.5-35B-A3B
+- 截止: 2026年6月30日
+- 工具: [CC Switch](https://ccswitch.io/zh/) 可直接配置到 Claude Code
+
+### 3. Noiz.ai — AI语音克隆平台
+- 网址: https://noiz.ai/
+- 功能: TTS (文本转语音)、Voice Clone (语音克隆)
+- 免费额度: 需注册确认
+
+## 已验证端点（无需Key即可访问）
+
+以下端点确认在线且返回模型列表:
+
+| 端点 | /models | 状态 |
+|------|---------|------|
+| OpenRouter | 27 free models | ✅ 200 |
+| NVIDIA NIM | 120 models | ✅ 200 |
+| SambaNova | 8 models | ✅ 200 |
+| GitHub Models | 8 models | ✅ 200 |
+| AIMLAPI | 617 models | ✅ 200 |
+
+## 快速开始
+
+### 1. 获取API Key（推荐顺序）
+
+1. **OpenRouter** → openrouter.ai → 注册 → 获取Key (最推荐，27+免费模型)
+2. **Google Gemini** → aistudio.google.com → 获取API Key (1,500 RPD)
+3. **Groq** → console.groq.com → 注册 → 获取Key (极速推理)
+4. **DeepSeek** → platform.deepseek.com → 注册 → 获取Key (5M tokens)
+
+### 2. 配置
+
+```bash
+cp scripts/api_keys.example.env .env.keys
+# 编辑 .env.keys 填入你的API Keys
+```
+
+### 3. 测试
+
+```bash
+python3 scripts/test_free_apis.py
+```
+
+### 4. 使用（OpenAI兼容格式）
+
+```python
+from openai import OpenAI
+
+# OpenRouter - 27+ free models
+client = OpenAI(
+    api_key="sk-or-YOUR_KEY",
+    base_url="https://openrouter.ai/api/v1"
+)
+
+# Google Gemini
+client = OpenAI(
+    api_key="YOUR_GEMINI_KEY",
+    base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
+)
+
+# Groq
+client = OpenAI(
+    api_key="YOUR_GROQ_KEY",
+    base_url="https://api.groq.com/openai/v1"
+)
+
+# 所有使用统一接口
+response = client.chat.completions.create(
+    model="MODEL_NAME",
+    messages=[{"role": "user", "content": "Hello!"}]
+)
+print(response.choices[0].message.content)
+```
+
+## 贡献
+
+欢迎提交新的免费API发现！请包含:
+- 提供商名称和网址
+- 免费额度详情
+- API Base URL和认证方式
+- 测试验证结果
+
+## 许可
+
+MIT License
+
 ---
 
-## 🚀 免费 API 速查表
-
-### 国内平台
-
-| 平台 | 免费模型 | 免费额度 | Base URL | 注册获取 Key |
-|------|---------|---------|----------|-------------|
-| **智谱AI (GLM)** | GLM-4-Flash, GLM-4.7-Flash | 永久免费，新用户送2000万Token | `https://open.bigmodel.cn/api/paas/v4` | https://open.bigmodel.cn |
-| **DeepSeek** | DeepSeek-V3, DeepSeek-R1 | 新用户送500万Token | `https://api.deepseek.com/v1` | https://platform.deepseek.com |
-| **硅基流动 (SiliconCloud)** | DeepSeek-V3, Qwen3, GLM等100+ | 新人免费额度 | `https://api.siliconflow.cn/v1` | https://cloud.siliconflow.cn |
-| **阿里百炼** | 通义千问全系列 | 每月100万Token免费 | `https://dashscope.aliyuncs.com/compatible-mode/v1` | https://bailian.console.aliyun.com |
-| **Kimi (Moonshot)** | Moonshot-v1, Kimi-K2.5 | 新用户送15元 | `https://api.moonshot.cn/v1` | https://platform.moonshot.cn |
-| **腾讯混元** | 混元系列 | 有限免费额度 | `https://api.hunyuan.cloud.tencent.com/v1` | https://console.cloud.tencent.com/hunyuan |
-| **MiniMax** | MiniMax-Text-01 | 有限免费 | `https://api.minimax.chat/v1` | https://www.minimaxi.com |
-| **Agnes AI** | Agnes-2.0-Flash, Agnes-Image-2.0-Flash, Agnes-Video-V2.0 | **无限期全免费**（文本+图片+视频） | `https://apihub.agnes-ai.com/v1` | https://platform.agnes-ai.com |
-| **零一万物** | Yi系列 | 有限免费 | `https://api.lingyiwanwu.com/v1` | https://platform.lingyiwanwu.com |
-
-### 海外平台
-
-| 平台 | 免费模型 | 免费额度 | Base URL | 注册获取 Key |
-|------|---------|---------|----------|-------------|
-| **Google Gemini** | Gemini Flash, Pro | **永久免费**，1500次/天 | `https://generativelanguage.googleapis.com/v1beta` | https://aistudio.google.com |
-| **Groq** | Llama 4 Scout, Qwen3 32B, DeepSeek R1 | 30K tokens/min, 14400 req/day | `https://api.groq.com/openai/v1` | https://console.groq.com |
-| **OpenRouter** | 28个免费模型（openrouter/free 路由） | 永久免费 | `https://openrouter.ai/api/v1` | https://openrouter.ai |
-| **Together AI** | 100+开源模型 | 新用户$5-25免费额度 | `https://api.together.xyz/v1` | https://api.together.xyz |
-| **Cohere** | Command R, Embed, Rerank | 免费层可用 | `https://api.cohere.ai/v1` | https://dashboard.cohere.com |
-| **Cerebras** | Llama 3.3 70B等 | 免费高速推理 | `https://api.cerebras.ai/v1` | https://cloud.cerebras.ai |
-| **Fireworks AI** | 100+开源模型 | 新用户免费额度 | `https://api.fireworks.ai/inference/v1` | https://fireworks.ai |
-| **HuggingFace** | 数千开源模型 | 免费层（有冷启动） | `https://api-inference.huggingface.co` | https://huggingface.co |
-| **Mistral (La Plateforme)** | Mistral Small, Medium | Experiment层免费 | `https://api.mistral.ai/v1` | https://console.mistral.ai |
-| **Novita AI** | 多种开源模型 | 每日免费额度 | `https://api.novita.ai/v3` | https://novita.ai |
-
-### 专用能力平台
-
-| 平台 | 能力 | 免费额度 | 说明 |
-|------|------|---------|------|
-| **Noiz.ai** | TTS/语音克隆/情感控制 | 免费账号可用 | https://developers.noiz.ai |
-| **Kimi WebBridge** | 浏览器自动化Agent | Kimi账号可用 | https://www.kimi.com/zh-cn/features/webbridge |
-
----
-
-## 🧪 连通性测试结果
-
-测试时间：2026-06-07 | 测试环境：智谱战士1号容器
-
-| 平台 | 端点可达 | API响应验证 | 需要Key |
-|------|---------|------------|---------|
-| DeepSeek | ✅ HTTP 401 | ✅ 返回认证错误（正常） | ✅ |
-| 硅基流动 | ✅ HTTP 404 | ✅ 返回token无效（正常） | ✅ |
-| Google Gemini | ✅ HTTP 404 | ✅ 端点可达 | ✅ |
-| Groq | ✅ HTTP 403 | ✅ 返回Forbidden（正常） | ✅ |
-| Kimi/Moonshot | ✅ HTTP 401 | ✅ 返回认证错误（正常） | ✅ |
-| Cohere | ✅ HTTP 200 | ✅ 返回no api key（正常） | ✅ |
-| Together AI | ✅ HTTP 200 | ✅ 返回Missing API key（正常） | ✅ |
-| Fireworks AI | ✅ HTTP 200 | ✅ 返回UNAUTHORIZED（正常） | ✅ |
-
-> 所有端点从容器内均可访问，无网络封锁。
-
----
-
-## 📝 下一步行动
-
-- [ ] 逐个注册获取 API Key
-- [ ] 用统一脚本测试每个 API 的实际推理能力
-- [ ] 编写 OpenAI 兼容格式的统一调用封装
-- [ ] 建立 token 安全存储和轮换机制
-- [ ] 评估 Kimi WebBridge 的浏览器自动化能力
-- [ ] 评估 Noiz.ai 的 TTS/语音克隆 API
-- [ ] 评估 Agnes AI 的全模态免费 API（文本+图片+视频）
-
----
-
-## 📌 关键发现
-
-1. **Agnes AI** 最值得关注 — 全球首家全模态（文本+图片+视频）API 无限期免费开放
-2. **Google Gemini** 的免费层最慷慨 — 永久免费，1500次/天
-3. **Groq** 免费层速度极快 — LPU 推理，30K tokens/min
-4. **OpenRouter** 有 28 个永久免费模型 — 可通过 `openrouter/free` 路由自动选择
-5. **智谱 GLM-4-Flash** 永久免费 — 128K上下文，30并发
-6. **硅基流动** 聚合了 100+ 模型 — 包含 DeepSeek、Qwen、GLM 等免费选项
-
----
-
-*调研人：智谱战士1号 | 创建时间：2026-06-07*
+*MindApex Team | 智谱2号战士 | 2026-06*

@@ -39,4 +39,37 @@
 
 ---
 
+---
+
+## 智谱战士4号 补充测试
+
+**测试时间**：2026-06-07 17:27 UTC+8
+**测试人**：智谱战士4号
+**测试环境**：c-6a25088d-1445a456-27a3688961a4 (腾讯云容器, IP: 47.57.232.232)
+
+### 附加连通性测试
+
+| 平台 | 端点 | HTTP状态 | 结果 | 说明 |
+|------|------|---------|------|------|
+| OpenRouter | openrouter.ai/api/v1/models | 200 | ✅ 可达 | **返回完整模型列表**（含28个免费模型） |
+| Agnes AI | apihub.agnes-ai.com/v1/chat/completions | 401 | ✅ 可达 | 返回"未提供令牌"（OpenAI兼容格式） |
+| GitHub Models | models.github.ai | 302 | ✅ 可达 | 重定向到 marketplace |
+| Cloudflare Workers AI | api.cloudflare.com/client/v4/models | 400 | ✅ 可达 | 返回路由错误（需认证） |
+| NVIDIA NIM | build.nvidia.com | 200 | ✅ 可达 | 页面正常响应 |
+
+### OpenRouter 免费模型发现
+
+通过 `GET /api/v1/models` 无需认证即可获取完整模型列表，发现以下免费模型：
+- `nvidia/nemotron-3.5-content-safety:free`
+- 多种 Llama、Mistral、Qwen 变体（带 `:free` 后缀）
+
+### 关键发现
+
+1. **所有 9 个测试端点从腾讯云容器内均可访问**，无网络封锁
+2. **OpenRouter 是唯一无需认证即可获取数据的提供商**，可立即使用免费模型列表
+3. **Agnes AI API 确认为 OpenAI 兼容格式**，Base URL 为 `https://apihub.agnes-ai.com/v1`
+4. 建议优先注册：Google Gemini（无需信用卡）、Groq（无需信用卡）、OpenRouter（无需信用卡）
+
+---
+
 *下次更新待添加：带实际 Key 的推理测试结果*

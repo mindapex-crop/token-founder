@@ -1,0 +1,6 @@
+# Dependencies
+openai>=1.0.0
+
+# Optional: for local model deployment
+# ollama
+# vllm
